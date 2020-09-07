@@ -1,7 +1,13 @@
-<?php 
+<?php
 
-    require_once 'disconnect.php';
+require_once 'models/Book.php';
 
-    class Book {
-    }
-$book = new Book();
+$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+$book = Book::findByid($id);
+
+var_dump($book);
+
+?>
+
+<h1><?php echo $book->title; ?></h1>
