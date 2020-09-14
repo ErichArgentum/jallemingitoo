@@ -13,5 +13,7 @@ foreach((array)$oBook as $key => $value) {
     var_dump($key);
 }
 
+header('Location: editForm.php');
 
-var_dump($oBook);
+
+exit;
