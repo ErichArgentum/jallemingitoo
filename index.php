@@ -1,13 +1,8 @@
 <?php
 
 require_once 'models/Book.php';
-
-$id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-
+    
 $list = Book::findAll();
-
-
-
 
 ?>
 
@@ -16,15 +11,14 @@ $list = Book::findAll();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Books</title>
 </head>
 <body>
+<ul>
+    <?php foreach($list as $book){ ?>
 
-<?php
-    foreach($list as $book) { ?>
-    <li><a href="book.php?id=<?php echo $book->id; ?>"><?php echo $book->title; ?></a></li> 
+    <li><a href="book.php?id=<?php echo $book->id;?>"><?php echo $book->title; ?></a></li>
     <?php } ?>
-
-    
+</ul>
 </body>
 </html>
